@@ -1,2 +1,2 @@
-# lizakechik-
+# lizakechik
 My personal website
