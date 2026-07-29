@@ -1,0 +1,65 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = await getCollection("projects");
+---
+
+<section class="projects">
+
+  <div class="heading">
+    <h2>
+      Selected projects
+    </h2>
+
+    <a href="/projects">
+      View all projects →
+    </a>
+  </div>
+
+
+  <div class="grid">
+
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+
+  </div>
+
+</section>
+
+
+<style>
+  .projects {
+    padding: 80px 0;
+  }
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 700px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

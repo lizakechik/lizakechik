@@ -1,0 +1,92 @@
+---
+const { project } = Astro.props;
+
+const {
+  title,
+  description,
+  company,
+  year,
+  tags
+} = project.data;
+---
+
+<a href={`/projects/${project.id}`} class="card-link">
+
+  <article class="card">
+
+    <h3>
+      {title}
+    </h3>
+
+    <p>
+      {description}
+    </p>
+
+    <div class="meta">
+      <span>{company}</span>
+      <span>·</span>
+      <span>{year}</span>
+    </div>
+
+    <div class="tags">
+      {tags.map((tag: string) => (
+        <span class="tag">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+  </article>
+
+</a>
+
+<style>
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .card {
+    padding: 24px;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+  }
+
+  h3 {
+    margin: 0 0 12px;
+    font-size: 24px;
+  }
+
+  p {
+    margin: 0 0 20px;
+    line-height: 1.5;
+    color: #555;
+  }
+
+  .meta {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: #777;
+    font-size: 14px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #f3f3f3;
+    font-size: 14px;
+  }
+</style>
