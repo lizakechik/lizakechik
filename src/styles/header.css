@@ -1,0 +1,52 @@
+.header {
+	width: 100%;
+	position: relative;
+	z-index: 10;
+}
+
+.header-inner {
+	width: 100%;
+	margin: 0;
+	padding: 48px 48px;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo {
+	color: var(--color-text);
+	text-decoration: none;
+}
+
+.header-nav {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+}
+
+.header-nav a {
+	color: var(--color-text);
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+}
+
+.header-nav a:hover,
+.logo:hover {
+	opacity: 0.55;
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 767px) {
+	.header-inner {
+		padding: 24px 20px;
+	}
+
+	.header-nav {
+		gap: 20px;
+	}
+}

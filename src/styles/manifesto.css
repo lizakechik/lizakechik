@@ -1,0 +1,79 @@
+.manifesto {
+	width: 100%;
+	padding: 152px 96px;
+}
+
+.manifesto-layout {
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	column-gap: 160px;
+}
+
+.manifesto-heading {
+	margin: 0;
+}
+
+.manifesto-content {
+	width: 100%;
+	padding-top: 19px;
+}
+
+.manifesto-content p {
+	margin-bottom: 34px;
+}
+
+.manifesto-content p:last-of-type {
+	margin-bottom: 0;
+}
+
+.manifesto-rule {
+	display: block;
+	width: 48px;
+	height: 3px;
+	margin-top: 40px;
+	background: var(--color-text);
+}
+
+
+/* =========================
+   1280px
+   ========================= */
+
+@media (max-width: 1280px) {
+	.manifesto {
+		padding-left: 64px;
+		padding-right: 64px;
+	}
+
+	.manifesto-layout {
+		column-gap: 96px;
+	}
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 767px) {
+	.manifesto {
+		padding: 64px 20px;
+	}
+
+	.manifesto-layout {
+		grid-template-columns: 1fr;
+		row-gap: 32px;
+	}
+
+	.manifesto-content {
+		padding-top: 0;
+	}
+
+    .manifesto-content p {
+        margin-bottom: 32px;
+    }
+
+	.manifesto-rule {
+		margin-top: 40px;
+	}
+}

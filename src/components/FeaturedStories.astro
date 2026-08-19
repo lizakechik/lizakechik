@@ -1,0 +1,64 @@
+---
+import "../styles/featuredstories.css";
+
+const stories = [
+	{
+		num: "I",
+		title: "Почему оформление заказа сложнее, чем кажется",
+		description:
+			"История о том, как разобраться в сложном пользовательском сценарии и найти решения, которые работают для всех сторон.",
+		tags: "CASES • 2023",
+		href: "/stories/checkout",
+	},
+	{
+		num: "II",
+		title: "Как мы перестали строить продукты в вакууме",
+		description:
+			"О том, как выстроить процесс принятия решений на основе исследований, а не предположений.",
+		tags: "STRATEGY • RESEARCH",
+		href: "/stories",
+	},
+	{
+		num: "III",
+		title: "Почему личные финансы — это не про деньги",
+		description:
+			"Как понять мотивацию пользователя и спроектировать продукт, который решает настоящую проблему.",
+		tags: "STRATEGY • RESEARCH",
+		href: "/stories",
+	},
+	{
+		num: "IV",
+		title: "Когда MVP перестаёт быть минимальным",
+		description:
+			"Разбор того, как сохранить фокус на главном, когда вокруг продукта появляется всё больше требований.",
+		tags: "CASES • 2023",
+		href: "/stories",
+	},
+];
+---
+
+<section class="stories-section">
+	<div class="stories-container">
+		<p class="stories-label text-caps">Избранные истории</p>
+
+		<div class="story-list">
+			{
+				stories.map((story) => (
+					<article class="story-row">
+						<span class="story-row__num">{story.num}</span>
+
+						<div class="story-row__body">
+							<h3 class="story-row__title">{story.title}</h3>
+							<p class="story-row__desc">{story.description}</p>
+							<p class="story-row__tags text-caps">{story.tags}</p>
+						</div>
+
+						<a href={story.href} class="story-row__link text-caps">
+							Читать →
+						</a>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

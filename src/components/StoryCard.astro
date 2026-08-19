@@ -1,0 +1,23 @@
+---
+const { story } = Astro.props;
+---
+
+<article class="story-card">
+
+<a href={`/stories/${story.id}`}>
+
+<h3>
+{story.data.title}
+</h3>
+
+<p>
+{story.data.description}
+</p>
+
+<span>
+{story.data.company} · {story.data.role}
+</span>
+
+</a>
+
+</article>

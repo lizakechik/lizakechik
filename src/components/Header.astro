@@ -1,0 +1,38 @@
+---
+import "../styles/header.css";
+
+interface Props {
+	variant?: "default" | "home";
+}
+
+const { variant = "default" } = Astro.props;
+const isHome = variant === "home";
+---
+
+<header class:list={["header", isHome && "header--home"]}>
+	{
+		isHome ? (
+			<div class="header-inner">
+				<a href="/" class="text-caps logo">
+					Liza Kechik
+				</a>
+
+				<nav class="header-nav" aria-label="Основная навигация">
+					<a href="/stories" class="text-caps">Истории</a>
+					<a href="/about" class="text-caps">Об авторе</a>
+				</nav>
+			</div>
+		) : (
+			<div class="header-inner">
+				<a href="/" class="text-caps logo">
+					Liza Kechik
+				</a>
+
+				<nav class="header-nav" aria-label="Основная навигация">
+					<a href="/stories" class="text-caps">Истории</a>
+					<a href="/about" class="text-caps">Об авторе</a>
+				</nav>
+			</div>
+		)
+	}
+</header>
