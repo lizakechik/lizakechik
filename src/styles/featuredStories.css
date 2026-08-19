@@ -1,10 +1,11 @@
 .stories-section {
 	width: 100%;
-	padding: 0 96px 120px;
+	padding: 0 0 152px;
 }
 
 .stories-container {
-	width: 100%;
+	width: min(1128px, 100%);
+	margin-inline: auto;
 }
 
 .stories-label {
@@ -40,16 +41,16 @@
 }
 
 .story-row__num {
-	padding-top: 17px;
+	padding-top: 10px;
 }
 
 .story-row__title {
-	margin-bottom: 32px;
+	margin-bottom: 20px;
 }
 
 .story-row__desc {
 	max-width: 80%;
-	margin-bottom: 32px;
+	margin-bottom: 24px;
 }
 
 .story-row__tags {
@@ -57,7 +58,7 @@
 }
 
 .story-row__link {
-	padding-top: 17px;
+	padding-top: 12px;
 
 	color: var(--color-text);
 	text-decoration: none;
@@ -71,7 +72,7 @@
 
    @media (max-width: 767px) {
 	.stories-section {
-		padding: 0 20px 80px;
+		padding: 0 20px 64px;
 	}
 
 	.stories-label {

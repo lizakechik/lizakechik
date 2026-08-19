@@ -1,12 +1,15 @@
 .manifesto {
 	width: 100%;
-	padding: 152px 96px;
+	padding: 152px 0;
 }
 
 .manifesto-layout {
+	width: min(1128px, 100%);
+	margin-inline: auto;
+
 	display: grid;
-	grid-template-columns: max-content minmax(0, 1fr);
-	column-gap: 160px;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 0;
 }
 
 .manifesto-heading {
@@ -15,11 +18,11 @@
 
 .manifesto-content {
 	width: 100%;
-	padding-top: 19px;
+	padding-top: 20px;
 }
 
 .manifesto-content p {
-	margin-bottom: 34px;
+	margin: 0 0 32px;
 }
 
 .manifesto-content p:last-of-type {
@@ -36,22 +39,6 @@
 
 
 /* =========================
-   1280px
-   ========================= */
-
-@media (max-width: 1280px) {
-	.manifesto {
-		padding-left: 64px;
-		padding-right: 64px;
-	}
-
-	.manifesto-layout {
-		column-gap: 96px;
-	}
-}
-
-
-/* =========================
    Mobile
    ========================= */
 
@@ -61,17 +48,22 @@
 	}
 
 	.manifesto-layout {
+		width: 100%;
 		grid-template-columns: 1fr;
 		row-gap: 32px;
+	}
+
+	.manifesto-heading {
+		font-size: 40px;
 	}
 
 	.manifesto-content {
 		padding-top: 0;
 	}
 
-    .manifesto-content p {
-        margin-bottom: 32px;
-    }
+	.manifesto-content p {
+		margin-bottom: 32px;
+	}
 
 	.manifesto-rule {
 		margin-top: 40px;

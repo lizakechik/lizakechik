@@ -1,29 +1,34 @@
 .about-preview {
 	width: 100%;
-	padding: 0 96px 104px;
+	padding: 152px 0;
+	border-top: 1px solid #e0e0e0;
 }
 
 .about-preview-layout {
+	width: min(1128px, 100%);
+	margin-inline: auto;
+
 	display: grid;
-	grid-template-columns: minmax(0, 1fr);
+	grid-template-columns: 1fr;
 }
 
 .about-preview-content {
-	width: 100%;
-	padding-left: 312px;
-	padding-right: 312px;
+	width: 564px;
+	max-width: 100%;
+	margin-inline: auto;
+	padding: 0;
 }
 
 .about-preview-rule {
 	display: block;
 	width: 48px;
 	height: 3px;
-	margin-bottom: 40px;
+	margin-bottom: 32px;
 	background: var(--color-text);
 }
 
 .about-preview-content p {
-	margin-bottom: 32px;
+	margin: 0 0 16px;
 }
 
 .about-preview-content p:last-of-type {
@@ -40,42 +45,34 @@
 
 
 /* =========================
-   1280px
-   ========================= */
-
-@media (max-width: 1280px) {
-	.about-preview {
-		padding-left: 96px;
-		padding-right: 96px;
-	}
-
-	.about-preview-content {
-		padding-left: 248px;
-		padding-right: 248px;
-	}
-}
-
-
-/* =========================
    Mobile
    ========================= */
 
 @media (max-width: 767px) {
 	.about-preview {
-		padding: 0 20px 64px;
+		padding: 64px 20px;
+	}
+
+	.about-preview-layout {
+		width: 100%;
 	}
 
 	.about-preview-content {
-		padding-left: 0;
-		padding-right: 0;
+		width: 100%;
+		max-width: none;
+		margin: 0;
 	}
-
-    .about-preview-content p {
-        margin-bottom: 24px;
-    }
 
 	.about-preview-rule {
 		margin-bottom: 32px;
+	}
+
+	.about-preview-content p {
+		margin-bottom: 24px;
+	}
+
+	.about-preview-content p:last-of-type {
+		margin-bottom: 0;
 	}
 
 	.about-preview-link {
