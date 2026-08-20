@@ -2,9 +2,17 @@
 	--font-serif: "Source Serif 4", serif;
 	--font-sans: "Manrope", sans-serif;
 
-	--color-text: #3f3f38;
-	--color-heading: #1c1c1a;
-	--color-background: #ffffff;
+	--color-text: #3F3F38;
+	--color-heading: #1C1C1A;
+	--color-background: #F7F6F2;
+
+    --color-surface-accent: #E2DDD9;
+
+	--color-accent-blue: #263B63;
+	--color-accent-raspberry: #6B3E46;
+	--color-accent-violet: #403B68;
+
+	--color-divider: #E2DDD9;
 }
 
 
@@ -38,7 +46,7 @@ h2,
 h3,
 h4 {
 	font-family: var(--font-serif);
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.1;
 	letter-spacing: 0;
 	margin: 0;
@@ -54,7 +62,7 @@ h2 {
 }
 
 h3 {
-	font-size: 32px;
+	font-size: 28px;
 }
 
 h4 {
@@ -64,19 +72,29 @@ h4 {
 p {
 	font-family: var(--font-sans);
 	font-size: 18px;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: 1.8;
 	letter-spacing: 0;
 	margin: 0;
 }
 
+.text-small {
+	font-size: 16px;
+}
+
 .text-caps {
 	font-family: var(--font-sans);
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: normal;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
+}
+
+.divider {
+	width: 100%;
+	height: 1px;
+	background: var(--color-divider);
 }
 
 
@@ -95,7 +113,7 @@ p {
 	}
 
 	h3 {
-		font-size: 32px;
+		font-size: 28px;
 	}
 
 	h4 {

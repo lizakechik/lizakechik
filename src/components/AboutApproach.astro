@@ -1,0 +1,45 @@
+---
+import "../styles/aboutApproach.css";
+
+const approaches = [
+	{
+		title: "Вопрос важнее ответа",
+		text: "Большинство плохих решений рождаются из правильно реализованной, но неверно поставленной задачи.",
+	},
+	{
+		title: "Контекст — это данные",
+		text: "Ограничения, история команды, чужие решения — все это часть задачи. Хорошее решение учитывает среду.",
+	},
+	{
+		title: "Смысл имеет значение",
+		text: "Большинство неудачных решений — следствие не плохой реализации, а неверно поставленного вопроса.",
+	},
+];
+---
+
+<section class="about-approach">
+	<div class="about-approach-container">
+		<p class="about-approach-label text-caps">Как я работаю</p>
+
+		<div class="about-approach-list">
+			<div class="about-approach-item">
+				<h4>{approaches[0].title}</h4>
+				<p>{approaches[0].text}</p>
+			</div>
+
+			<span class="about-approach-divider" aria-hidden="true"></span>
+
+			<div class="about-approach-item">
+				<h4>{approaches[1].title}</h4>
+				<p>{approaches[1].text}</p>
+			</div>
+
+			<span class="about-approach-divider" aria-hidden="true"></span>
+
+			<div class="about-approach-item">
+				<h4>{approaches[2].title}</h4>
+				<p>{approaches[2].text}</p>
+			</div>
+		</div>
+	</div>
+</section>

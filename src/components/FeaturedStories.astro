@@ -22,16 +22,8 @@ const stories = [
 		num: "III",
 		title: "Почему личные финансы — это не про деньги",
 		description:
-			"Как понять мотивацию пользователя и спроектировать продукт, который решает настоящую проблему.",
+			"О том, как понять мотивацию пользователя и спроектировать продукт, который решает настоящую проблему.",
 		tags: "STRATEGY • RESEARCH",
-		href: "/stories",
-	},
-	{
-		num: "IV",
-		title: "Когда MVP перестаёт быть минимальным",
-		description:
-			"Разбор того, как сохранить фокус на главном, когда вокруг продукта появляется всё больше требований.",
-		tags: "CASES • 2023",
 		href: "/stories",
 	},
 ];
@@ -45,17 +37,17 @@ const stories = [
 			{
 				stories.map((story) => (
 					<article class="story-row">
-						<span class="story-row__num text-caps">{story.num}</span>
+						<span class="story-row__num">{story.num}</span>
 
 						<div class="story-row__body">
 							<h3 class="story-row__title">{story.title}</h3>
-							<p class="story-row__desc">{story.description}</p>
+
+							<p class="story-row__desc text-small">
+								{story.description}
+							</p>
+
 							<p class="story-row__tags text-caps">{story.tags}</p>
 						</div>
-
-						<a href={story.href} class="story-row__link text-caps">
-							Читать →
-						</a>
 					</article>
 				))
 			}
