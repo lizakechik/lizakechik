@@ -30,6 +30,7 @@
 	display: block;
 	height: 40px;
 	width: auto;
+	color: var(--color-text);
 }
 
 .header-nav {

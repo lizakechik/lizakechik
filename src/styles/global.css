@@ -66,7 +66,7 @@ h3 {
 }
 
 h4 {
-	font-size: 22px;
+	font-size: 24px;
 }
 
 p {
@@ -97,6 +97,16 @@ p {
 	background: var(--color-divider);
 }
 
+/* =========================
+   Elements
+   ========================= */
+
+   .rule {
+	width: 48px;
+	height: 2px;
+	display: block;
+	background: var(--color-text);
+}
 
 /* =========================
    Mobile
@@ -113,11 +123,11 @@ p {
 	}
 
 	h3 {
-		font-size: 28px;
+		font-size: 24px;
 	}
 
 	h4 {
-		font-size: 20px;
+		font-size: 22px;
 	}
 
 	p {

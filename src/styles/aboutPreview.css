@@ -28,12 +28,8 @@
 	width: 100%;
 }
 
-.about-preview-rule {
-	display: block;
-	width: 48px;
-	height: 3px;
+.about-preview-card .rule {
 	margin-bottom: 8px;
-    background: var(--color-text);
 }
 
 .about-preview-card__text {

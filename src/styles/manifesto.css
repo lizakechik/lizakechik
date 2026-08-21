@@ -22,19 +22,15 @@
 }
 
 .manifesto-content p {
-	margin: 0 0 32px;
+	margin-bottom: 32px;
 }
 
 .manifesto-content p:last-of-type {
 	margin-bottom: 0;
 }
 
-.manifesto-rule {
-	display: block;
-	width: 48px;
-	height: 3px;
+.manifesto-layout .rule {
 	margin-top: 40px;
-	background: var(--color-text);
 }
 
 
@@ -50,7 +46,7 @@
 	.manifesto-layout {
 		width: 100%;
 		grid-template-columns: 1fr;
-		row-gap: 32px;
+		row-gap: 24px;
 	}
 
 	.manifesto-content {
@@ -58,10 +54,11 @@
 	}
 
 	.manifesto-content p {
-		margin-bottom: 32px;
+		margin-bottom: 24px;
 	}
 
-	.manifesto-rule {
-		margin-top: 40px;
-	}
+    .manifesto-layout .rule {
+        margin-top: 32px;
+    }
+
 }

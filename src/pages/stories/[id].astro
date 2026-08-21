@@ -18,7 +18,8 @@ export async function getStaticPaths() {
 
 const { story } = Astro.props;
 
-const { Content } = await story.render();
+const { render } = await import("astro:content");
+const { Content } = await render(story);
 ---
 
 <BaseLayout title={story.data.title}>

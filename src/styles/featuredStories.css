@@ -85,7 +85,7 @@
 
 	.story-row {
 		grid-template-columns: 32px minmax(0, 1fr);
-		column-gap: 24px;
+		column-gap: 16px;
 
 		padding-bottom: 56px;
 	}
@@ -96,7 +96,7 @@
 
 	.story-row__num {
 		width: 32px;
-		padding-top: 10px;
+		padding-top: 7px;
 		font-size: 14px;
 	}
 

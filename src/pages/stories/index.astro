@@ -1,26 +1,181 @@
 ---
-import { getCollection } from "astro:content";
+import "../../styles/stories.css";
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
-import StoryCard from "../../components/StoryCard.astro";
+import Footer from "../../components/Footer.astro";
+
+import { getCollection } from "astro:content";
 
 const stories = await getCollection("stories");
+
+const toRoman = (num: number) => {
+	const values = [
+		[10, "X"],
+		[9, "IX"],
+		[5, "V"],
+		[4, "IV"],
+		[1, "I"],
+	] as const;
+
+	let result = "";
+
+	for (const [value, symbol] of values) {
+		while (num >= value) {
+			result += symbol;
+			num -= value;
+		}
+	}
+
+	return result;
+};
+
+const categories = [
+	"ALL",
+	...Array.from(new Set(stories.map((story) => story.data.category.toUpperCase()))),
+];
+
+const companies = Array.from(
+	new Set(
+		stories
+			.map((story) => story.data.company)
+			.filter(Boolean)
+			.map((company) => company!.toUpperCase()),
+	),
+);
 ---
 
 <BaseLayout title="Истории">
+	<Header />
 
-<Header />
+	<main>
+		<section class="stories-intro">
+			<div class="container">
+				<div class="stories-intro__layout">
+					<h2 class="stories-intro__heading">
+						Продуктовые<br />
+						истории
+					</h2>
 
-<main class="container">
+					<div class="stories-intro__content">
+						<p>
+							Здесь собраны истории о продуктах, исследованиях и решениях,
+							которые рождаются на пересечении интересов пользователя,
+							бизнеса и технологий.
+						</p>
 
-<h1>Истории решений</h1>
+						<span class="rule"></span>
+					</div>
+				</div>
+			</div>
+		</section>
 
-{
-stories.map((story) => (
-  <StoryCard story={story}/>
-))
-}
+<!-- 		<section class="stories-filters">
+			<div class="container">
+				<div class="stories-filters__inner">
+					<button
+						class="stories-filter is-active text-caps"
+						type="button"
+						data-filter="all"
+					>
+						Все
+					</button>
 
-</main>
+					{
+						categories.slice(1).map((category) => (
+							<button
+								class="stories-filter text-caps"
+								type="button"
+								data-filter={category.toLowerCase()}
+							>
+								{category}
+							</button>
+						))
+					}
 
+					{
+						companies.map((company) => (
+							<button
+								class="stories-filter text-caps"
+								type="button"
+								data-filter={company.toLowerCase()}
+							>
+								{company}
+							</button>
+						))
+					}
+				</div>
+			</div>
+		</section> -->
+
+		<section class="stories-list">
+			<div class="container">
+				<div class="stories-list__inner">
+					{
+						stories.map((story, index) => (
+							<article
+								class="story-item"
+								data-category={story.data.category.toLowerCase()}
+								data-company={story.data.company?.toLowerCase() ?? ""}
+							>
+								<span class="story-item__num">
+									{toRoman(index + 1)}
+								</span>
+
+								<div class="story-item__body">
+                  <a href={`/stories/${story.id}`} class="story-item__link">
+                    <h3 class="story-item__title">
+                      {story.data.title}
+                    </h3>
+
+                    <p class="story-item__description text-small">
+                      {story.data.description}
+                    </p>
+
+                    <p class="story-item__tags text-caps">
+                      {story.data.category}
+                      {story.data.company
+                        ? ` • ${story.data.company}`
+                        : ""}
+                      {story.data.date
+                        ? ` • ${story.data.date}`
+                        : ""}
+                    </p>
+                  </a>
+                </div>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
 </BaseLayout>
+
+<script>
+	const filters = document.querySelectorAll<HTMLButtonElement>(".stories-filter");
+	const items = document.querySelectorAll<HTMLElement>(".story-item");
+
+	filters.forEach((filter) => {
+		filter.addEventListener("click", () => {
+			const value = filter.dataset.filter;
+
+			filters.forEach((item) => item.classList.remove("is-active"));
+			filter.classList.add("is-active");
+
+			items.forEach((item) => {
+				const category = item.dataset.category;
+				const company = item.dataset.company;
+
+				const visible =
+					value === "all" ||
+					category === value ||
+					company === value;
+
+				item.hidden = !visible;
+			});
+		});
+	});
+</script>
