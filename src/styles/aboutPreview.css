@@ -1,6 +1,6 @@
 .about-preview {
 	width: 100%;
-	padding: 120px 0;
+	padding: 144px 0;
 }
 
 .about-preview-layout {
@@ -63,7 +63,7 @@
 
 @media (max-width: 767px) {
 	.about-preview {
-		padding: 64px 20px;
+		padding: 80px 20px;
 	}
 
 	.about-preview-layout {

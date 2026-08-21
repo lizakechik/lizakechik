@@ -1,6 +1,6 @@
 .manifesto {
 	width: 100%;
-	padding: 120px 0;
+	padding: 144px 0;
 }
 
 .manifesto-layout {
@@ -44,17 +44,13 @@
 
 @media (max-width: 767px) {
 	.manifesto {
-		padding: 64px 20px;
+		padding: 80px 20px;
 	}
 
 	.manifesto-layout {
 		width: 100%;
 		grid-template-columns: 1fr;
 		row-gap: 32px;
-	}
-
-	.manifesto-heading {
-		font-size: 40px;
 	}
 
 	.manifesto-content {

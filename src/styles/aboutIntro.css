@@ -93,6 +93,8 @@
 	}
 
 	.about-intro-image {
+        order: -1;
+
 		width: 100%;
 		height: auto;
 		aspect-ratio: 3 / 4;

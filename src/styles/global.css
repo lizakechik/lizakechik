@@ -6,7 +6,7 @@
 	--color-heading: #1C1C1A;
 	--color-background: #F7F6F2;
 
-    --color-surface-accent: #E2DDD9;
+    --color-surface-accent: #E2DDD9;    
 
 	--color-accent-blue: #263B63;
 	--color-accent-raspberry: #6B3E46;
@@ -79,7 +79,7 @@ p {
 }
 
 .text-small {
-	font-size: 16px;
+	font-size: 18px;
 }
 
 .text-caps {
@@ -109,7 +109,7 @@ p {
 	}
 
 	h2 {
-		font-size: 40px;
+		font-size: 38px;
 	}
 
 	h3 {
@@ -121,8 +121,12 @@ p {
 	}
 
 	p {
-		font-size: 18px;
+		font-size: 16px;
 	}
+
+    .text-small {
+        font-size: 16px;
+    }
 
 	.text-caps {
 		font-size: 14px;

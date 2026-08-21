@@ -10,29 +10,47 @@ const isHome = variant === "home";
 ---
 
 <header class:list={["header", isHome && "header--home"]}>
-	{
-		isHome ? (
-			<div class="header-inner">
-				<a href="/" class="text-caps logo">
-					Liza Kechik
-				</a>
+	<div class="header-inner">
+		<a href="/" class="text-caps logo" aria-label="На главную">
+			<img src="/images/logo.svg" alt="Liza Kechik" />
+		</a>
 
-				<nav class="header-nav" aria-label="Основная навигация">
-					<a href="/stories" class="text-caps">Истории</a>
-					<a href="/about" class="text-caps">Об авторе</a>
-				</nav>
-			</div>
-		) : (
-			<div class="header-inner">
-				<a href="/" class="text-caps logo">
-					Liza Kechik
-				</a>
+		<nav class="header-nav" aria-label="Основная навигация">
+			<a href="/stories" class="text-caps">Истории</a>
+			<a href="/about" class="text-caps">Об авторе</a>
+		</nav>
 
-				<nav class="header-nav" aria-label="Основная навигация">
-					<a href="/stories" class="text-caps">Истории</a>
-					<a href="/about" class="text-caps">Об авторе</a>
-				</nav>
-			</div>
-		)
-	}
+		<button
+			class="menu-toggle"
+			type="button"
+			aria-label="Открыть меню"
+			aria-expanded="false"
+		>
+			<span></span>
+			<span></span>
+		</button>
+
+		<nav class="mobile-menu" aria-label="Мобильная навигация">
+			<a href="/stories" class="text-caps">Истории</a>
+			<a href="/about" class="text-caps">Об авторе</a>
+		</nav>
+	</div>
 </header>
+
+<script>
+	const toggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+	const menu = document.querySelector<HTMLElement>(".mobile-menu");
+
+	if (toggle && menu) {
+		toggle.addEventListener("click", () => {
+			const isOpen = menu.classList.toggle("is-open");
+
+			toggle.classList.toggle("is-open", isOpen);
+			toggle.setAttribute("aria-expanded", String(isOpen));
+			toggle.setAttribute(
+				"aria-label",
+				isOpen ? "Закрыть меню" : "Открыть меню"
+			);
+		});
+	}
+</script>
