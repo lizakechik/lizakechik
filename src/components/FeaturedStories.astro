@@ -16,7 +16,7 @@ const stories = [
 		description:
 			"О том, как выстроить процесс принятия решений на основе исследований, а не предположений.",
 		tags: "STRATEGY • RESEARCH",
-		href: "/stories",
+		href: "/stories/product-strategy",
 	},
 	{
 		num: "III",
@@ -24,7 +24,15 @@ const stories = [
 		description:
 			"О том, как понять мотивацию пользователя и спроектировать продукт, который решает настоящую проблему.",
 		tags: "STRATEGY • RESEARCH",
-		href: "/stories",
+		href: "/stories/personal-finance",
+	},
+    {
+		num: "IV",
+        title: "Что меняется, когда начинаешь слушать пользователя",
+        description: 
+            "История о том, как исследования помогают увидеть проблему за пределами очевидных решений.",
+		tags: "RESEARCH",
+		href: "/stories/user-research",
 	},
 ];
 ---
@@ -40,17 +48,22 @@ const stories = [
 						<span class="story-row__num">{story.num}</span>
 
 						<div class="story-row__body">
-							<h3 class="story-row__title">{story.title}</h3>
+                            <a href={story.href} class="story-row__link">
+                                <h3 class="story-row__title">{story.title}</h3>
 
-							<p class="story-row__desc text-small">
-								{story.description}
-							</p>
+                                <p class="story-row__desc text-small">
+                                    {story.description}
+                                </p>
 
-							<p class="story-row__tags text-caps">{story.tags}</p>
-						</div>
+                                <p class="story-row__tags text-caps">{story.tags}</p>
+                            </a>
+                            </div>
 					</article>
 				))
 			}
 		</div>
+        <a href="/stories" class="text-caps arrow-link">
+            Все истории →
+        </a>
 	</div>
 </section>

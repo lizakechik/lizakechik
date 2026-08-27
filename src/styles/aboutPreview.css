@@ -6,14 +6,11 @@
 .about-preview-layout {
 	width: min(1128px, 100%);
 	margin-inline: auto;
-
-	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .about-preview-card {
 	min-width: 0;
-	padding: 96px 64px;
+	padding: 96px 233px;
 }
 
 .about-preview-card--stories {
@@ -25,7 +22,9 @@
 }
 
 .about-preview-card__content {
-	width: 100%;
+	width: 660px;
+    padding-left: 96px;
+    padding-right: 96px;
 }
 
 .about-preview-card .rule {
@@ -44,12 +43,8 @@
 	margin-bottom: 0;
 }
 
-.about-preview-link {
-	display: inline-block;
-	margin-top: 32px;
-
-	color: var(--color-text);
-	text-decoration: none;
+.about-preview-card__content .arrow-link {
+    margin-top: 32px;
 }
 
 
@@ -71,16 +66,22 @@
 		padding: 56px 32px;
 	}
 
+    .about-preview-card__content {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
 	.about-preview-card__text {
-		margin-top: 32px;
+		margin-top: 24px;
 	}
 
 	.about-preview-card__text p {
 		margin-bottom: 16px;
 	}
 
-	.about-preview-link {
-		margin-top: 32px;
+    .about-preview-card__content .arrow-link {
+		margin-top: 24px;
 	}
 }
 

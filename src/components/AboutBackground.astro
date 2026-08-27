@@ -1,0 +1,80 @@
+---
+import "../styles/aboutBackground.css";
+
+const backgroundItems = [
+	{
+		icon: "/images/about-background-1.svg",
+		title: "Знания закладывают основу",
+		paragraphs: [
+			"Имею степень бакалавра по прикладной математике и информатике, магистра по фундаментальной информатике и ИТ. Образование сформировало аналитическое мышление, системный подход и понимание того, как устроены технологии.",
+			"Прошла сертификацию Google по UX-дизайну, школу продактов HH, курсы по UI от FAANG и многое другое. Постоянно изучаю новые инструменты, подходы и технологии, которые помогают мне развиваться в профессиональной сфере.",
+		],
+	},
+	{
+		icon: "/images/about-background-2.svg",
+		title: "Опыт формирует взгляд",
+		paragraphs: [
+			"Первый абзац текста.",
+		],
+	},
+	{
+		icon: "/images/about-background-3.svg",
+		title: "Интересы расширяют перспективу",
+		paragraphs: [
+			"Первый абзац текста.",
+			"Второй абзац текста.",
+		],
+	},
+	{
+		icon: "/images/about-background-4.svg",
+		title: "Мышление определяет подход",
+		paragraphs: [
+			"Первый абзац текста.",
+		],
+	},
+];
+---
+
+<section class="about-background">
+	<div class="about-background__container">
+
+		<p class="about-background__label text-caps">
+			Мой бэкграунд
+		</p>
+
+		<div class="about-background__list">
+			{
+				backgroundItems.map((item) => (
+					<article class="about-background__item">
+
+						<div class="about-background__icon">
+							<img
+								src={item.icon}
+								alt=""
+								width="24"
+								height="24"
+								aria-hidden="true"
+							/>
+						</div>
+
+						<div class="about-background__content">
+							<h3 class="about-background__title">
+								{item.title}
+							</h3>
+
+							<div class="about-background__text">
+								{
+									item.paragraphs.map((paragraph) => (
+										<p>{paragraph}</p>
+									))
+								}
+							</div>
+						</div>
+
+					</article>
+				))
+			}
+		</div>
+
+	</div>
+</section>

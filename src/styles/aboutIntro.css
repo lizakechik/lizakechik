@@ -1,6 +1,6 @@
 .about-intro {
 	width: 100%;
-	padding: 24px 0 120px;
+	padding: 24px 0 96px;
 }
 
 .about-intro-container {
@@ -8,7 +8,7 @@
 	margin-inline: auto;
 
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 468px;
+	grid-template-columns: minmax(0, 1fr) auto;
 	column-gap: 160px;
 	align-items: center;
 }
@@ -35,7 +35,7 @@
 
 .about-intro-text p {
 	margin: 0;
-    margin-top: 28px;
+    margin-top: 24px;
 }
 
 .about-intro-text p + p {
@@ -43,8 +43,8 @@
 }
 
 .about-intro-image {
-	width: 468px;
-	height: 624px;
+	width: 450px;
+	height: 600px;
 }
 
 .about-intro-image img {
@@ -96,4 +96,8 @@
 		height: 100%;
 		object-fit: cover;
 	}
+
+    .about-intro-content .rule {
+        margin-top: 32px;
+    }
 }

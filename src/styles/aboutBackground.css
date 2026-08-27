@@ -1,0 +1,128 @@
+/* =========================
+   About background
+   ========================= */
+
+   .about-background {
+	width: 100%;
+	padding: 0 0 120px;
+}
+
+.about-background__container {
+	width: min(660px, 100%);
+	max-width: 100%;
+	margin-inline: auto;
+}
+
+.about-background__label {
+	margin: 0 0 64px;
+}
+
+
+/* =========================
+   Background list
+   ========================= */
+
+.about-background__list {
+	width: 100%;
+}
+
+.about-background__item {
+	display: grid;
+	grid-template-columns: 32px minmax(0, 1fr);
+	column-gap: 64px;
+	align-items: start;
+
+	padding: 0 0 64px;
+
+	border-bottom: 1px solid var(--color-divider);
+}
+
+.about-background__item + .about-background__item {
+	padding-top: 64px;
+}
+
+.about-background__item:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+
+/* =========================
+   Icon
+   ========================= */
+
+.about-background__icon {
+	width: 32px;
+	padding-top: 4px;
+}
+
+.about-background__icon img {
+	display: block;
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+}
+
+
+/* =========================
+   Content
+   ========================= */
+
+.about-background__title {
+	margin: 0 0 20px;
+}
+
+.about-background__text {
+	margin: 0;
+}
+
+.about-background__text p {
+	margin: 0 0 16px;
+}
+
+.about-background__text p:last-child {
+	margin-bottom: 0;
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 767px) {
+
+	.about-background {
+		padding: 0 20px 64px;
+	}
+
+	.about-background__container {
+		width: 100%;
+		max-width: none;
+	}
+
+	.about-background__label {
+		margin-bottom: 48px;
+	}
+
+	.about-background__item {
+		grid-template-columns: 32px minmax(0, 1fr);
+		column-gap: 16px;
+		padding-bottom: 56px;
+	}
+
+	.about-background__item + .about-background__item {
+		padding-top: 56px;
+	}
+
+	.about-background__title {
+		margin-bottom: 20px;
+	}
+
+	.about-background__text p {
+		margin-bottom: 16px;
+	}
+
+	.about-background__icon {
+		padding-top: 2px;
+	}
+}

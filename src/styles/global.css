@@ -101,12 +101,26 @@ p {
    Elements
    ========================= */
 
-   .rule {
+.rule {
 	width: 48px;
 	height: 2px;
 	display: block;
 	background: var(--color-text);
 }
+
+.arrow-link {
+        font-weight: 600;
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.arrow-link:hover {
+	opacity: 0.55;
+	transform: translateY(4px);
+}
+
 
 /* =========================
    Mobile
@@ -137,8 +151,4 @@ p {
     .text-small {
         font-size: 16px;
     }
-
-	.text-caps {
-		font-size: 14px;
-	}
 }
