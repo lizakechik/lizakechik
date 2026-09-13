@@ -1,39 +1,64 @@
 ---
-import { getCollection } from "astro:content";
+import "../../styles/story.css";
+
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 
 export async function getStaticPaths() {
-  const stories = await getCollection("stories");
+	const stories = await getCollection("stories");
 
-  return stories.map((story) => ({
-    params: {
-      id: story.id
-    },
-    props: {
-      story
-    }
-  }));
+	return stories.map((story) => ({
+		params: {
+			id: story.id,
+		},
+		props: {
+			story,
+		},
+	}));
 }
 
 const { story } = Astro.props;
-
-const { render } = await import("astro:content");
 const { Content } = await render(story);
 ---
 
-<BaseLayout title={story.data.title}>
+<BaseLayout title={story.data.title} description={story.data.description}>
+	<Header />
 
-<Header />
+	<main class="story-page">
+		<section class="story-header">
+			<div class="story-header__inner">
+				<a href="/stories" class="text-caps arrow-link">
+					← Все истории
+				</a>
 
-<main class="container">
+				<h2 class="story-header__title">
+					{story.data.title}
+				</h2>
 
-<h1>{story.data.title}</h1>
+				<p class="story-header__description">
+					{story.data.description}
+				</p>
 
-<p>{story.data.description}</p>
+				<p class="story-header__tags text-caps">
+					{story.data.category}
+					{story.data.company
+						? ` • ${story.data.company}`
+						: ""}
+					{story.data.date
+						? ` • ${story.data.date}`
+						: ""}
+				</p>
+			</div>
+		</section>
 
-<Content />
+		<div class="story-header__divider"></div>
 
-</main>
+		<article class="story-content">
+			<Content />
+		</article>
+	</main>
 
+	<Footer />
 </BaseLayout>

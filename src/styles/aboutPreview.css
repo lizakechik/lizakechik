@@ -27,12 +27,12 @@
     padding-right: 96px;
 }
 
-.about-preview-card .rule {
+/* .about-preview-card .rule {
 	margin-bottom: 8px;
-}
+} */
 
 .about-preview-card__text {
-	margin-top: 32px;
+	margin-top: 36px;
 }
 
 .about-preview-card__text p {

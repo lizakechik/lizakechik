@@ -14,7 +14,7 @@
 }
 
 .about-background__label {
-	margin: 0 0 64px;
+	margin: 0 0 56px;
 }
 
 
@@ -48,23 +48,6 @@
 
 
 /* =========================
-   Icon
-   ========================= */
-
-.about-background__icon {
-	width: 32px;
-	padding-top: 4px;
-}
-
-.about-background__icon img {
-	display: block;
-	width: 24px;
-	height: 24px;
-	object-fit: contain;
-}
-
-
-/* =========================
    Content
    ========================= */
 
@@ -82,6 +65,57 @@
 
 .about-background__text p:last-child {
 	margin-bottom: 0;
+}
+
+
+/* =========================
+   New format
+   ========================= */
+
+.about-background__item--new {
+	display: block;
+}
+
+.about-background__item--new .about-background__title {
+	margin-bottom: 16px;
+}
+
+
+/* =========================
+   Details
+   ========================= */
+
+.about-background__details {
+	margin-top: 24px;
+}
+
+.about-background__detail {
+	display: grid;
+	grid-template-columns: 64px minmax(0, 1fr);
+	column-gap: 32px;
+	align-items: start;
+}
+
+.about-background__detail + .about-background__detail {
+	margin-top: 24px;
+}
+
+.about-background__detail-number {
+	padding-top: 6px;
+
+	font-family: var(--font-serif);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.1;
+	color: var(--color-heading);
+}
+
+.about-background__detail-content h5 {
+	margin: 0;
+}
+
+.about-background__detail-content p {
+	margin: 8px 0 0;
 }
 
 
@@ -122,7 +156,37 @@
 		margin-bottom: 16px;
 	}
 
-	.about-background__icon {
-		padding-top: 2px;
+
+	/* =========================
+	   New format — mobile
+	   ========================= */
+
+	.about-background__item--new {
+		display: block;
+	}
+
+	.about-background__item--new .about-background__title {
+		margin-bottom: 16px;
+	}
+
+	.about-background__details {
+		margin-top: 24px;
+	}
+
+	.about-background__detail {
+		grid-template-columns: 48px minmax(0, 1fr);
+		column-gap: 24px;
+	}
+
+	.about-background__detail + .about-background__detail {
+		margin-top: 24px;
+	}
+
+	.about-background__detail-number {
+		padding-top: 6px;
+	}
+
+	.about-background__detail-content h5 {
+		font-size: 22px;
 	}
 }

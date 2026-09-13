@@ -44,7 +44,8 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
 	font-family: var(--font-serif);
 	font-weight: 600;
 	line-height: 1.1;
@@ -58,7 +59,7 @@ h1 {
 }
 
 h2 {
-	font-size: 65px;
+	font-size: 60px;
 }
 
 h3 {
@@ -67,6 +68,12 @@ h3 {
 
 h4 {
 	font-size: 24px;
+}
+
+h5 {
+	font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
 }
 
 p {

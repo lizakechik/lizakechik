@@ -29,8 +29,8 @@
 	max-width: 540px;
 }
 
-.stories-intro__content .rule {
-	margin-top: 40px;
+ .rule {
+	margin-top: 36px;
 }
 
 
@@ -190,7 +190,7 @@
 
 	.story-item {
 		grid-template-columns: 32px minmax(0, 1fr);
-		column-gap: 16px;
+		column-gap: 24px;
 		padding-bottom: 56px;
 	}
 
@@ -200,7 +200,7 @@
 
 	.story-item__num {
 		width: 32px;
-		padding-top: 7px;
+		padding-top: 10px;
 	}
 
 	.story-item__title {

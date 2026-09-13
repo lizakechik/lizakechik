@@ -54,17 +54,7 @@
 
 }
 
-.hero-scroll {
-	color: var(--color-text);
-	text-decoration: none;
 
-	transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.hero-scroll:hover {
-	opacity: 0.55;
-	transform: translateY(4px);
-}
 
 
 /* =========================
