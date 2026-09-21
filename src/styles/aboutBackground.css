@@ -105,8 +105,9 @@
 	margin-top: 24px;
 }
 
-.about-background__detail-content h5 {
+.about-background__detail-content h4 {
 	margin: 0;
+	font-weight: 500;
 }
 
 .about-background__detail-content p {
@@ -174,7 +175,4 @@
 		margin-top: 24px;
 	}
 
-	.about-background__detail-content h5 {
-		font-size: 22px;
-	}
 }
