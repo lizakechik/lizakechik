@@ -71,7 +71,7 @@ h4 {
 }
 
 h5 {
-	font-size: 18px;
+	font-size: 20px;
     font-weight: 500;
     line-height: 25px;
 }
@@ -96,6 +96,16 @@ p {
 	line-height: normal;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
+}
+
+.item-number {
+	padding-top: 10px;
+
+	font-family: var(--font-serif);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.1;
+	color: var(--color-heading);
 }
 
 .divider {
@@ -158,4 +168,8 @@ p {
     .text-small {
         font-size: 16px;
     }
+
+	.item-number {
+		padding-top: 7px;
+	}
 }

@@ -19,8 +19,8 @@
 
 .story-row {
 	display: grid;
-	grid-template-columns: 32px minmax(0, 1fr);
-	column-gap: 64px;
+	grid-template-columns: 64px minmax(0, 1fr);
+	column-gap: 32px;
 	align-items: start;
 
 	padding: 0 0 64px;
@@ -39,16 +39,6 @@
 .story-row:last-child {
 	border-bottom: none;
 	padding-bottom: 0;
-}
-
-.story-row__num {
-	padding-top: 10px;
-
-	font-family: var(--font-serif);
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 1.1;
-	color: var(--color-heading);
 }
 
 .story-row__title {
@@ -102,20 +92,14 @@
 	}
 
 	.story-row {
-		grid-template-columns: 32px minmax(0, 1fr);
-		column-gap: 16px;
+		grid-template-columns: 48px minmax(0, 1fr);
+		column-gap: 24px;
 
 		padding-bottom: 56px;
 	}
 
 	.story-row + .story-row {
 		padding-top: 56px;
-	}
-
-	.story-row__num {
-		width: 32px;
-		padding-top: 7px;
-		font-size: 14px;
 	}
 
 	.story-row__title {
