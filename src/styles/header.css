@@ -113,7 +113,7 @@
 
 @media (max-width: 767px) {
 	.header-inner {
-		padding: 16px 20px;
+		padding: 16px var(--mobile-gutter);
 	}
 
 	.logo {
@@ -139,11 +139,11 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		right: 20px;
+		right: var(--mobile-gutter);
 	
 		height: 100%;
 	
-		padding: 0 64px 0 20px;
+		padding: 0 64px 0 var(--mobile-gutter);
 	
 		align-items: center;
 		justify-content: flex-start;

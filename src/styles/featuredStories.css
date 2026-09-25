@@ -19,7 +19,7 @@
 
 .story-row {
 	display: grid;
-	grid-template-columns: 64px minmax(0, 1fr);
+	grid-template-columns: var(--item-number-width) minmax(0, 1fr);
 	column-gap: 32px;
 	align-items: start;
 
@@ -68,7 +68,7 @@
 
 .stories-container .arrow-link {
     margin-top: 64px;
-    margin-left: 96px;
+    margin-left: 88px;
 }
 
 
@@ -79,7 +79,7 @@
 
 @media (max-width: 767px) {
 	.stories-section {
-		padding: 0 20px;
+		padding: 0 var(--mobile-gutter);
 	}
 
 	.stories-container {
@@ -92,7 +92,7 @@
 	}
 
 	.story-row {
-		grid-template-columns: 48px minmax(0, 1fr);
+		grid-template-columns: var(--item-number-width) minmax(0, 1fr);
 		column-gap: 24px;
 
 		padding-bottom: 56px;

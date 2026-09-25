@@ -54,7 +54,7 @@
 
 @media (max-width: 767px) {
 	.about-preview {
-		padding: 80px 20px;
+		padding: 80px var(--mobile-gutter);
 	}
 
 	.about-preview-layout {
@@ -84,4 +84,3 @@
 		margin-top: 24px;
 	}
 }
-
