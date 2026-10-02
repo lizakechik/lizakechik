@@ -16,6 +16,7 @@
 
 	--mobile-gutter: 16px;
 	--item-number-width: 48px;
+	--rule-thickness: 2px;
 }
 
 
@@ -79,7 +80,7 @@ h5 {
 
 p {
 	font-family: var(--font-sans);
-	font-size: 19px;
+	font-size: 18px;
 	font-weight: 400;
 	line-height: 1.75;
 	letter-spacing: 0;
@@ -121,7 +122,7 @@ p {
 
 .rule {
 	width: 48px;
-	height: 2px;
+	height: var(--rule-thickness);
 	display: block;
 	background: var(--color-text);
 }

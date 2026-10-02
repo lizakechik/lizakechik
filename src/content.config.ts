@@ -9,6 +9,7 @@ const stories = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
+		image: z.string().optional(),
 		date: z.string(),
 		role: z.string(),
 		company: z.string().optional(),

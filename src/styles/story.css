@@ -2,7 +2,9 @@
    Story page
    ========================= */
 
-   .story-page {
+.story-page {
+	--story-content-width: 660px;
+
 	width: 100%;
 }
 
@@ -17,7 +19,7 @@
 }
 
 .story-header__inner {
-	width: min(872px, 100%);
+	width: min(var(--story-content-width), 100%);
 	margin-inline: auto;
 }
 
@@ -35,7 +37,10 @@
 }
 
 .story-header__divider {
-	width: min(872px, calc(100% - 40px));
+	width: min(
+		var(--story-content-width),
+		calc(100% - (var(--mobile-gutter) * 2))
+	);
 	height: 1px;
 	margin-inline: auto;
 	background: var(--color-divider);
@@ -47,21 +52,30 @@
    ========================= */
 
 .story-content {
-	width: 660px;
+	--section-divider-space: 64px;
+
+	width: var(--story-content-width);
 	max-width: calc(100% - (var(--mobile-gutter) * 2));
 	margin: 56px auto 120px;
 }
 
-.story-content h4 {
-	margin: 0 0 24px;
+.story-content__layout > h3 {
+	margin: 0 0 20px;
+}
+
+.story-content__layout > h3 ~ h3 {
+	margin-top: var(--section-divider-space);
+	padding-top: var(--section-divider-space);
+	border-top: 1px solid var(--color-divider);
 }
 
 .story-content h5 {
 	margin: 48px 0 20px;
 }
 
-.story-content p {
-	margin: 0 0 24px;
+.story-content__layout > p {
+	font-size: inherit;
+	margin: 0 0 20px;
 }
 
 
@@ -82,18 +96,14 @@
    ========================= */
 
 .story-content blockquote {
-	margin: 64px 0;
-	padding-left: 48px;
-	border-left: 2px solid var(--color-text);
+	margin: 32px 0;
+	padding-left: 24px;
+	border-left: var(--rule-thickness) solid var(--color-text);
 }
 
 .story-content blockquote p {
-	font-family: var(--font-serif);
-	font-size: 28px;
-	font-weight: 400;
-	line-height: 1.35;
+	font-size: inherit;
 }
-
 
 /* =========================
    Mobile
@@ -123,13 +133,11 @@
 	}
 
 	.story-content {
+		--section-divider-space: 56px;
+
 		width: auto;
 		max-width: none;
 		margin: 40px var(--mobile-gutter) 80px;
-	}
-
-	.story-content h4 {
-		margin-bottom: 20px;
 	}
 
 	.story-content h5 {
@@ -137,7 +145,7 @@
 		margin-bottom: 16px;
 	}
 
-	.story-content p {
+	.story-content__layout > p {
 		margin-bottom: 20px;
 	}
 
@@ -151,7 +159,4 @@
 		padding-left: 24px;
 	}
 
-	.story-content blockquote p {
-		font-size: 24px;
-	}
 }

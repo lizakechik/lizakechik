@@ -33,30 +33,34 @@ const { Content } = await render(story);
 					← Все истории
 				</a>
 
-				<h2 class="story-header__title">
-					{story.data.title}
-				</h2>
+				<div class="story-header__content">
+					<h2 class="story-header__title">
+						{story.data.title}
+					</h2>
 
-				<p class="story-header__description">
-					{story.data.description}
-				</p>
+					<p class="story-header__description">
+						{story.data.description}
+					</p>
 
-				<p class="story-header__tags text-caps">
-					{story.data.category}
-					{story.data.company
-						? ` • ${story.data.company}`
-						: ""}
-					{story.data.date
-						? ` • ${story.data.date}`
-						: ""}
-				</p>
+					<p class="story-header__tags text-caps">
+						{story.data.category}
+						{story.data.company
+							? ` • ${story.data.company}`
+							: ""}
+						{story.data.date
+							? ` • ${story.data.date}`
+							: ""}
+					</p>
+				</div>
 			</div>
 		</section>
 
 		<div class="story-header__divider"></div>
 
-		<article class="story-content">
-			<Content />
+		<article class="story-content text-small">
+			<div class="story-content__layout">
+				<Content />
+			</div>
 		</article>
 	</main>
 

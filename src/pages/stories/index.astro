@@ -9,27 +9,6 @@ import { getCollection } from "astro:content";
 
 const stories = await getCollection("stories");
 
-const toRoman = (num: number) => {
-	const values = [
-		[10, "X"],
-		[9, "IX"],
-		[5, "V"],
-		[4, "IV"],
-		[1, "I"],
-	] as const;
-
-	let result = "";
-
-	for (const [value, symbol] of values) {
-		while (num >= value) {
-			result += symbol;
-			num -= value;
-		}
-	}
-
-	return result;
-};
-
 const categories = [
 	"ALL",
 	...Array.from(new Set(stories.map((story) => story.data.category.toUpperCase()))),
@@ -118,9 +97,7 @@ const companies = Array.from(
 								data-category={story.data.category.toLowerCase()}
 								data-company={story.data.company?.toLowerCase() ?? ""}
 							>
-								<span class="item-number">
-									{toRoman(index + 1)}
-								</span>
+								<span class="item-number">➤</span>
 
 								<div class="story-item__body">
                   <a href={`/stories/${story.id}`} class="story-item__link">
