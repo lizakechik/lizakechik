@@ -154,7 +154,7 @@
 		white-space: nowrap;
 	
 		opacity: 0;
-		transform: translateX(20px);
+		transform: translateX(var(--mobile-gutter));
 		pointer-events: none;
 	
 		transition:

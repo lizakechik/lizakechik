@@ -1,6 +1,6 @@
 :root {
 	--font-serif: "Source Serif 4", serif;
-	--font-sans: "Manrope", sans-serif;
+	--font-sans: "Inter", sans-serif;
 
 	--color-text: #1C1C1A;
 	--color-heading: #1C1C1A;
@@ -53,7 +53,7 @@ h5 {
 	font-family: var(--font-serif);
 	font-weight: 600;
 	line-height: 1.1;
-	letter-spacing: 0;
+	letter-spacing: -0.5px;
 	margin: 0;
 	color: var(--color-heading);
 }
@@ -72,17 +72,19 @@ h3 {
 
 h4 {
 	font-size: 28px;
+	letter-spacing: 0;
 }
 
 h5 {
 	font-size: 18px;
+	letter-spacing: 0;
 }
 
 p {
 	font-family: var(--font-sans);
 	font-size: 18px;
-	font-weight: 400;
-	line-height: 1.75;
+	font-weight: 300;
+	line-height: 1.7;
 	letter-spacing: 0;
 	margin: 0;
 }
@@ -94,7 +96,7 @@ p {
 .text-caps {
 	font-family: var(--font-sans);
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 300;
 	line-height: normal;
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
@@ -105,7 +107,7 @@ p {
 
 	font-family: var(--font-serif);
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 1.1;
 	color: var(--color-heading);
 }
@@ -128,7 +130,7 @@ p {
 }
 
 .arrow-link {
-        font-weight: 600;
+        font-weight: 500;
         display: block;
         color: inherit;
         text-decoration: none;
@@ -138,6 +140,43 @@ p {
 .arrow-link:hover {
 	opacity: 0.55;
 	transform: translateY(4px);
+}
+
+
+/* =========================
+   Motion
+   ========================= */
+
+[data-reveal] {
+	opacity: 0;
+	transform: translateY(18px);
+	transition:
+		opacity 0.65s ease-out var(--reveal-delay, 0ms),
+		transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+	wil-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+	opacity: 1;
+	transform: translateY(0);
+	will-change: auto;
+}
+
+.site-footer[data-reveal],
+.site-footer [data-reveal] {
+	opacity: 1;
+	transform: none;
+	transition: none;
+	wil-change: auto;
+}
+
+img[data-image-reveal] {
+	opacity: 0;
+	transition: opacity 0.7s ease-out;
+}
+
+img[data-image-reveal].is-loaded {
+	opacity: 1;
 }
 
 
@@ -180,5 +219,14 @@ p {
 
 	.item-number {
 		padding-top: 7px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-reveal],
+	img[data-image-reveal] {
+		opacity: 1;
+		transform: none;
+		transition: none;
 	}
 }

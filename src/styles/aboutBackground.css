@@ -51,16 +51,22 @@
    Content
    ========================= */
 
+.about-background__icon {
+	padding-top: 3px;
+}
+
+.about-background__icon img {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+
 .about-background__title {
 	margin: 0 0 20px;
 }
 
 .about-background__text {
 	margin: 0;
-}
-
-.about-background__text strong {
-	font-weight: 400;
 }
 
 .about-background__text p {

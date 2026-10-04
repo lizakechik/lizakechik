@@ -40,12 +40,94 @@ const {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 		<link
-		href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600&display=swap"
 		rel="stylesheet"
 		/>
 	</head>
 
 	<body class:list={bodyClass}>
 		<slot />
+
+		<script>
+			const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+			if (!reduceMotion.matches) {
+				const revealSelectors = [
+					".header-inner",
+					".hero-content > *",
+					".hero-footer",
+					".manifesto-heading",
+					".manifesto-content",
+					".stories-label",
+					".story-row",
+					".about-preview-card",
+					".about-intro-content",
+					".about-intro-image",
+					".about-background__label",
+					".about-background__item",
+					".stories-intro__heading",
+					".stories-intro__content",
+					".story-item",
+					".story-header__content > *",
+					".story-header__divider",
+					".story-content__layout > *",
+					"main.container > *",
+				];
+
+				const revealElements = Array.from(
+					new Set(
+						revealSelectors.flatMap((selector) =>
+							Array.from(document.querySelectorAll<HTMLElement>(selector)),
+						),
+					),
+				).filter((element) => !element.closest(".site-footer"));
+
+				revealElements.forEach((element, index) => {
+					element.dataset.reveal = "";
+					element.style.setProperty(
+						"--reveal-delay",
+						`${(index % 4) * 55}ms`,
+					);
+				});
+
+				if ("IntersectionObserver" in window) {
+					const observer = new IntersectionObserver(
+						(entries) => {
+							entries.forEach((entry) => {
+								if (!entry.isIntersecting) return;
+
+								entry.target.classList.add("is-visible");
+								observer.unobserve(entry.target);
+							});
+						},
+						{
+							threshold: 0.12,
+							rootMargin: "0px 0px -8%",
+						},
+					);
+
+					revealElements.forEach((element) => observer.observe(element));
+				} else {
+					revealElements.forEach((element) => element.classList.add("is-visible"));
+				}
+
+				document.querySelectorAll<HTMLImageElement>("main img").forEach((image) => {
+					image.dataset.imageReveal = "";
+
+					const showImage = () => {
+						requestAnimationFrame(() => {
+							requestAnimationFrame(() => image.classList.add("is-loaded"));
+						});
+					};
+
+					if (image.complete) {
+						showImage();
+					} else {
+						image.addEventListener("load", showImage, { once: true });
+						image.addEventListener("error", showImage, { once: true });
+					}
+				});
+			}
+		</script>
 	</body>
 </html>
