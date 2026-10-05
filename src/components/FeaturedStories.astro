@@ -3,7 +3,7 @@ import "../styles/featuredStories.css";
 
 const stories = [
 	{
-		num: "➤",
+		num: "01",
 		title: "Почему оформление заказа сложнее, чем кажется",
 		description:
 			"История о том, как разобраться в сложном пользовательском сценарии и найти решения, которые работают для всех сторон.",
@@ -11,7 +11,7 @@ const stories = [
 		href: "/stories/checkout",
 	},
 	{
-		num: "➤",
+		num: "02",
 		title: "Как мы перестали строить продукты в вакууме",
 		description:
 			"О том, как выстроить процесс принятия решений на основе исследований, а не предположений.",
@@ -19,15 +19,15 @@ const stories = [
 		href: "/stories/product-strategy",
 	},
 	{
-		num: "➤",
-		title: "Почему личные финансы — это не про деньги",
+		num: "03",
+		title: "Как привычка превратилась в первый собственный продукт",
 		description:
-			"О том, как понять мотивацию пользователя и спроектировать продукт, который решает настоящую проблему.",
-		tags: "STRATEGY • RESEARCH",
-		href: "/stories/personal-finance",
+			"История Nutmix Everyday — от наблюдения за собственной привычкой до продукта, который можно было взять в руки.",
+		tags: "STRATEGY • OWN PRODUCT",
+		href: "/stories/nutmix-everyday",
 	},
     {
-		num: "➤",
+		num: "04",
         title: "Что меняется, когда начинаешь слушать пользователя",
         description: 
             "История о том, как исследования помогают увидеть проблему за пределами очевидных решений.",
@@ -39,16 +39,23 @@ const stories = [
 
 <section class="stories-section">
 	<div class="stories-container">
-		<p class="stories-label text-caps">Избранные истории</p>
+		<div class="stories-heading">
+			<p class="stories-label text-caps section-kicker">Избранные истории</p>
+			<h2>Продуктовые<br />истории</h2>
+			<a href="/stories" class="text-caps arrow-link">
+				Все истории
+				<span class="icon-arrow" aria-hidden="true"></span>
+			</a>
+		</div>
 
 		<div class="story-list">
 			{
 				stories.map((story) => (
 					<article class="story-row">
-						<span class="item-number">{story.num}</span>
+						<a href={story.href} class="story-row__link">
+							<span class="story-row__number text-caps">{story.num}</span>
 
-						<div class="story-row__body">
-                            <a href={story.href} class="story-row__link">
+							<div class="story-row__body">
 								<h4 class="story-row__title">{story.title}</h4>
 
                                 <p class="story-row__desc text-small">
@@ -56,14 +63,12 @@ const stories = [
                                 </p>
 
                                 <p class="story-row__tags text-caps">{story.tags}</p>
-                            </a>
-                            </div>
+							</div>
+							<span class="story-row__arrow icon-arrow icon-arrow--external" aria-hidden="true"></span>
+						</a>
 					</article>
 				))
 			}
 		</div>
-        <a href="/stories" class="text-caps arrow-link">
-            Все истории →
-        </a>
 	</div>
 </section>

@@ -29,28 +29,42 @@ const { Content } = await render(story);
 	<main class="story-page">
 		<section class="story-header">
 			<div class="story-header__inner">
-				<a href="/stories" class="text-caps arrow-link">
-					← Все истории
+				<a href="/stories" class="text-caps arrow-link arrow-link--back">
+					<span class="icon-arrow icon-arrow--back" aria-hidden="true"></span>
+					Все истории
 				</a>
 
 				<div class="story-header__content">
-					<h2 class="story-header__title">
-						{story.data.title}
-					</h2>
+					<div class="story-header__main">
+						<h2 class="story-header__title">{story.data.title}</h2>
 
-					<p class="story-header__description">
-						{story.data.description}
-					</p>
+						<p class="story-header__description">{story.data.description}</p>
+					</div>
 
-					<p class="story-header__tags text-caps">
-						{story.data.category}
-						{story.data.company
-							? ` • ${story.data.company}`
-							: ""}
-						{story.data.date
-							? ` • ${story.data.date}`
-							: ""}
-					</p>
+					<dl class="story-header__meta">
+						<div>
+							<dt class="text-caps">Направление</dt>
+							<dd>{story.data.category}</dd>
+						</div>
+						{story.data.company && (
+							<div>
+								<dt class="text-caps">Компания</dt>
+								<dd>{story.data.company}</dd>
+							</div>
+						)}
+						{story.data.role && (
+							<div>
+								<dt class="text-caps">Роль</dt>
+								<dd>{story.data.role}</dd>
+							</div>
+						)}
+						{story.data.date && (
+							<div>
+								<dt class="text-caps">Год</dt>
+								<dd>{story.data.date}</dd>
+							</div>
+						)}
+					</dl>
 				</div>
 			</div>
 		</section>

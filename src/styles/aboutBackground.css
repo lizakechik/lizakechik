@@ -1,118 +1,67 @@
-/* =========================
-   About background
-   ========================= */
-
-   .about-background {
+.about-background {
 	width: 100%;
-	padding: 0 0 120px;
+	padding: 144px 0 160px;
+	background: var(--color-paper);
+	border-top: 1px solid var(--color-divider);
 }
 
 .about-background__container {
-	width: min(660px, 100%);
-	max-width: 100%;
+	width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
 	margin-inline: auto;
 }
 
-.about-background__label {
-	margin: 0 0 56px;
+.about-background__heading {
+	margin-bottom: 72px;
 }
 
-
-/* =========================
-   Background list
-   ========================= */
-
 .about-background__list {
-	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	column-gap: 96px;
+	row-gap: 72px;
 }
 
 .about-background__item {
-	display: grid;
-	grid-template-columns: var(--item-number-width) minmax(0, 1fr);
-	column-gap: 32px;
-	align-items: start;
-
-	padding: 0 0 64px;
-
-	border-bottom: 1px solid var(--color-divider);
-}
-
-.about-background__item + .about-background__item {
-	padding-top: 64px;
-}
-
-.about-background__item:last-child {
-	border-bottom: none;
-	padding-bottom: 0;
-}
-
-
-/* =========================
-   Content
-   ========================= */
-
-.about-background__icon {
-	padding-top: 3px;
-}
-
-.about-background__icon img {
-	display: block;
-	width: 24px;
-	height: 24px;
+	padding-top: 32px;
+	border-top: 1px solid var(--color-divider);
 }
 
 .about-background__title {
-	margin: 0 0 20px;
-}
-
-.about-background__text {
 	margin: 0;
 }
 
+.about-background__principle {
+	margin-top: 14px;
+	color: var(--color-muted);
+}
+
+.about-background__text {
+	margin-top: 28px;
+}
+
 .about-background__text p {
-	margin: 0 0 20px;
+	color: var(--color-muted);
 }
-
-.about-background__text p:last-child {
-	margin-bottom: 0;
-}
-
-
-/* =========================
-   Mobile
-   ========================= */
 
 @media (max-width: 767px) {
-
 	.about-background {
-		padding: 0 var(--mobile-gutter) 64px;
+		padding: 96px 0;
 	}
 
 	.about-background__container {
-		width: 100%;
-		max-width: none;
+		width: calc(100% - (var(--mobile-gutter) * 2));
 	}
 
-	.about-background__label {
+	.about-background__heading {
 		margin-bottom: 48px;
 	}
 
+	.about-background__list {
+		grid-template-columns: 1fr;
+		row-gap: 48px;
+	}
+
 	.about-background__item {
-		grid-template-columns: var(--item-number-width) minmax(0, 1fr);
-		column-gap: 24px;
-		padding-bottom: 56px;
+		padding-top: 28px;
 	}
-
-	.about-background__item + .about-background__item {
-		padding-top: 56px;
-	}
-
-	.about-background__title {
-		margin-bottom: 20px;
-	}
-
-	.about-background__text p {
-		margin-bottom: 20px;
-	}
-
 }

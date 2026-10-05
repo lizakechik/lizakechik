@@ -4,17 +4,25 @@ import "../styles/footer.css";
 
 <footer class="site-footer">
 	<div class="container site-footer__inner">
-		<span class="text-caps site-footer__copy">
-			© 2026 Liza Kechik
-		</span>
+		<div class="site-footer__lead">
+			<div class="site-footer__lead-main">
+				<p class="text-caps section-kicker">На связи</p>
+				<p class="site-footer__title">Есть задача или идея,<br />которую стоит обсудить?</p>
+			</div>
 
-		<nav class="site-footer__links" aria-label="Контакты">
-			<a
-				href="mailto:hello@lizakechik.com"
-				class="text-caps"
-			>
-				hello@lizakechik.com
-			</a>
+			<div class="site-footer__contact">
+				<p class="site-footer__contact-label text-caps">Написать</p>
+				<a href="mailto:hello@lizakechik.com" class="site-footer__email arrow-link">
+					hello@lizakechik.com
+					<span class="icon-arrow" aria-hidden="true"></span>
+				</a>
+			</div>
+		</div>
+
+		<div class="site-footer__bottom">
+			<span class="text-caps site-footer__copy">© 2026 Liza Kechik</span>
+
+			<nav class="site-footer__links" aria-label="Контакты">
 
 			<a
 				href="https://linkedin.com"
@@ -33,6 +41,7 @@ import "../styles/footer.css";
 			>
 				Telegram
 			</a>
-		</nav>
+			</nav>
+		</div>
 	</div>
 </footer>

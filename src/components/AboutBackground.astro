@@ -2,34 +2,34 @@
 import "../styles/aboutBackground.css";
 
 const backgroundItems: {
-	icon: string;
+	label: string;
 	title: string;
 	paragraphs: string[];
 }[] = [
 	{
-		icon: "/images/about-background-1.svg",
-		title: "Знания закладывают основу",
+		label: "Знания",
+		title: "Закладывают основу",
 		paragraphs: [
 			"Для меня знания — это не набор фактов, а опора, которая позволяет глубже понимать предмет и уверенно двигаться дальше. Мне важно не просто узнать новое, а понять, как это работает.",
 		],
 	},
 	{
-		icon: "/images/about-background-2.svg",
-		title: "Опыт формирует взгляд",
+		label: "Опыт",
+		title: "Формирует взгляд",
 		paragraphs: [
 			"За свою карьеру я успела поработать с разными продуктами и в разных ролях. Начинала с аналитики данных, позже занималась собственными проектами, проектировала пользовательский опыт, а со временем перешла к управлению продуктом.",
 		],
 	},
 	{
-		icon: "/images/about-background-3.svg",
-		title: "Интересы расширяют перспективу",
+		label: "Интересы",
+		title: "Расширяют перспективу",
 		paragraphs: [
 			"Продуктовая работа требует широкого взгляда, поэтому мне важно сохранять любопытство за пределами своей профессии. Я люблю пробовать новое, погружаться в незнакомые темы и расширять профессиональный контекст.",
 		],
 	},
 	{
-		icon: "/images/about-background-4.svg",
-		title: "Мышление определяет подход",
+		label: "Мышление",
+		title: "Определяет подход",
 		paragraphs: [
 			"Мне важно сначала понять, что именно мы пытаемся решить. В сложных задачах легко увлечься деталями, не договорившись о самой проблеме. Поэтому я стараюсь отступить на шаг назад, разобраться в контексте и найти главный вопрос.",
 		],
@@ -39,20 +39,20 @@ const backgroundItems: {
 
 <section class="about-background">
 	<div class="about-background__container">
-		<p class="about-background__label text-caps">Мой бэкграунд</p>
+		<div class="about-background__heading">
+			<p class="about-background__label text-caps section-kicker">Мой бэкграунд</p>
+		</div>
 
 		<div class="about-background__list">
 			{
 				backgroundItems.map((item) => (
 					<article class="about-background__item">
-						<div class="about-background__icon" aria-hidden="true">
-							<img src={item.icon} alt="" />
-						</div>
-
 						<div class="about-background__content">
 							<h4 class="about-background__title">
-								{item.title}
+								{item.label}
 							</h4>
+
+							<p class="about-background__principle text-caps">{item.title}</p>
 
 							<div class="about-background__text">
 								{item.paragraphs.map((paragraph) => (

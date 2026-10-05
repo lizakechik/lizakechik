@@ -1,92 +1,121 @@
 .hero {
 	flex: 1;
 	min-height: 0;
-
 	display: flex;
 	flex-direction: column;
-
-    border-bottom: 1px solid var(--color-divider);
+	border-bottom: 1px solid var(--color-divider);
 }
-
-
-/* =========================
-   Hero main
-   ========================= */
 
 .hero-main {
 	flex: 1;
 	min-height: 0;
-
 	display: flex;
 	align-items: center;
-	justify-content: center;
-
-	padding: 32px 0;
+	padding: clamp(24px, 4svh, 48px) 0 clamp(28px, 5svh, 56px);
 }
 
-.hero-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
+.hero-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 2fr) minmax(260px, 0.7fr);
+	column-gap: 88px;
+	align-items: end;
+	transform: translateY(clamp(6px, 1.5svh, 14px));
 }
 
 .hero h1 {
-	max-width: 1100px;
+	max-width: 940px;
+	font-size: clamp(58px, min(8vw, 11svh), 118px);
+	text-wrap: balance;
 }
 
-.hero-meta {
-	margin-top: 72px;
+.hero-kicker {
+	margin-bottom: clamp(20px, 3.5svh, 36px);
 }
 
+.hero-aside {
+	padding-bottom: 10px;
+}
 
-/* =========================
-   Hero footer
-   ========================= */
+.hero-aside > p {
+	font-size: 16px;
+	color: var(--color-muted);
+}
 
-.hero-footer {
-	flex-shrink: 0;
+.hero-index {
+	margin-top: clamp(20px, 4svh, 40px);
+	border-top: 1px solid var(--color-divider);
+}
 
+.hero-index a {
 	display: flex;
-	justify-content: center;
-
-	padding: 40px 48px 80px;
-
+	gap: 24px;
+	padding: clamp(10px, 1.6svh, 14px) 0;
+	border-bottom: 1px solid var(--color-divider);
+	color: inherit;
+	font-family: var(--font-sans);
+	font-size: 13px;
+	font-weight: 500;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
+	transition: padding-left 0.25s ease;
 }
 
+.hero-index a:hover {
+	padding-left: 8px;
+}
 
-
-
-/* =========================
-   First screen
-   ========================= */
+.hero-index span {
+	color: var(--color-muted);
+}
 
 .first-screen {
-	height: 100svh;
+	min-height: 100svh;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
 }
 
-
-/* =========================
-   Mobile
-   ========================= */
-
-@media (max-width: 767px) {
-	.hero-main {
-		padding: 24px 0 40px;
+@media (min-width: 768px) and (max-width: 1023px) {
+	.hero-layout {
+		grid-template-columns: minmax(0, 1.6fr) minmax(230px, 0.7fr);
+		column-gap: 48px;
 	}
 
 	.hero h1 {
-		max-width: 100%;
+		font-size: clamp(56px, min(7vw, 10svh), 68px);
+	}
+}
+
+@media (max-width: 767px) {
+	.first-screen {
+		min-height: 100svh;
 	}
 
-	.hero-meta {
-		margin-top: 48px;
+	.hero-main {
+		align-items: center;
+		padding: 40px 0 28px;
 	}
 
-	.hero-footer {
-		padding: 32px var(--mobile-gutter) 48px;
+	.hero-layout {
+		grid-template-columns: 1fr;
+		row-gap: 40px;
+		transform: none;
 	}
+
+	.hero-kicker {
+		margin-bottom: 24px;
+	}
+
+	.hero-aside {
+		padding-bottom: 0;
+	}
+
+	.hero-aside > p {
+		font-size: 15px;
+	}
+
+	.hero-index {
+		margin-top: 24px;
+	}
+
 }

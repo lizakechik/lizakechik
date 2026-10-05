@@ -55,22 +55,26 @@ const {
 				const revealSelectors = [
 					".header-inner",
 					".hero-content > *",
-					".hero-footer",
+					".hero-aside",
+					".manifesto-label",
 					".manifesto-heading",
 					".manifesto-content",
-					".stories-label",
+					".stories-heading",
 					".story-row",
-					".about-preview-card",
+					".about-preview__label",
+					".about-preview__content",
 					".about-intro-content",
 					".about-intro-image",
-					".about-background__label",
+					".about-background__heading",
 					".about-background__item",
+					".stories-intro__label",
 					".stories-intro__heading",
 					".stories-intro__content",
 					".story-item",
 					".story-header__content > *",
 					".story-header__divider",
-					".story-content__layout > *",
+					".story-content__layout > :not(blockquote)",
+					".story-content blockquote",
 					"main.container > *",
 				];
 
@@ -86,7 +90,7 @@ const {
 					element.dataset.reveal = "";
 					element.style.setProperty(
 						"--reveal-delay",
-						`${(index % 4) * 55}ms`,
+						`${(index % 2) * 60}ms`,
 					);
 				});
 

@@ -1,86 +1,69 @@
 .about-preview {
 	width: 100%;
-	padding: 144px 0;
+	padding: 160px 0;
 }
 
 .about-preview-layout {
-	width: min(1128px, 100%);
+	width: min(var(--page-width), calc(100% - (var(--page-gutter) * 2)));
 	margin-inline: auto;
 }
 
-.about-preview-card {
-	min-width: 0;
-	padding: 96px 233px;
+.about-preview__label {
+	margin-bottom: 72px;
 }
 
-.about-preview-card--stories {
-    background: var(--color-surface-accent);
+.about-preview__content {
+	display: grid;
+	grid-template-columns: minmax(0, 1.5fr) minmax(300px, 0.6fr);
+	column-gap: 104px;
+	align-items: end;
 }
 
-.about-preview-card--about{
-    border: 1px solid var(--color-surface-accent);
+.about-preview__content h2 {
+	max-width: 820px;
+	font-size: clamp(54px, 5.6vw, 82px);
 }
 
-.about-preview-card__content {
-	width: 660px;
-    padding-left: 80px;
-    padding-right: 80px;
+.about-preview__aside {
+	padding-bottom: 10px;
 }
 
-/* .about-preview-card .rule {
-	margin-bottom: 8px;
-} */
+.about-preview__aside p {
+	color: var(--color-muted);
+	font-size: 16px;
+}
 
-.about-preview-card__text {
+.about-preview__aside .arrow-link {
 	margin-top: 36px;
 }
 
-.about-preview-card__text p {
-	margin: 0 0 16px;
-}
-
-.about-preview-card__text p:last-child {
-	margin-bottom: 0;
-}
-
-.about-preview-card__content .arrow-link {
-    margin-top: 32px;
-}
-
-
-/* =========================
-   Mobile
-   ========================= */
-
 @media (max-width: 767px) {
 	.about-preview {
-		padding: 80px var(--mobile-gutter);
+		padding: 96px 0;
 	}
 
 	.about-preview-layout {
-		width: 100%;
+		width: calc(100% - (var(--mobile-gutter) * 2));
+	}
+
+	.about-preview__label {
+		margin-bottom: 48px;
+	}
+
+	.about-preview__content {
 		grid-template-columns: 1fr;
+		row-gap: 40px;
 	}
 
-	.about-preview-card {
-		padding: 56px 32px;
+	.about-preview__content h2 {
+		font-size: 48px;
 	}
 
-    .about-preview-card__content {
-        width: 100%;
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-	.about-preview-card__text {
-		margin-top: 24px;
+	.about-preview__aside {
+		padding-bottom: 0;
 	}
 
-	.about-preview-card__text p {
-		margin-bottom: 16px;
-	}
-
-    .about-preview-card__content .arrow-link {
-		margin-top: 24px;
+	.about-preview__aside .arrow-link {
+		margin-top: 28px;
 	}
 }

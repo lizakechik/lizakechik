@@ -30,6 +30,7 @@ const companies = Array.from(
 	<main>
 		<section class="stories-intro">
 			<div class="container">
+				<p class="stories-intro__label text-caps section-kicker">Истории</p>
 				<div class="stories-intro__layout">
 					<h2 class="stories-intro__heading">
 						Продуктовые<br />
@@ -43,7 +44,6 @@ const companies = Array.from(
 							бизнеса и технологий.
 						</p>
 
-						<span class="rule"></span>
 					</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@ const companies = Array.from(
 								data-category={story.data.category.toLowerCase()}
 								data-company={story.data.company?.toLowerCase() ?? ""}
 							>
-								<span class="item-number">➤</span>
+								<span class="item-number">{String(index + 1).padStart(2, "0")}</span>
 
 								<div class="story-item__body">
                   <a href={`/stories/${story.id}`} class="story-item__link">

@@ -6,89 +6,88 @@
 
 .header-inner {
 	width: 100%;
-	margin: 0;
-	padding: 24px 48px;
-
+	padding: clamp(16px, 2.5svh, 24px) var(--page-gutter);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-
 	position: relative;
 }
 
 .logo {
 	display: block;
+	position: relative;
+	z-index: 2;
 	line-height: 0;
 	color: var(--color-text);
 	text-decoration: none;
-	position: relative;
-	z-index: 2;
-	padding-top: 8px;
+	transform: translateY(5px);
 }
 
 .logo img {
 	display: block;
-	height: 40px;
 	width: auto;
-	color: var(--color-text);
+	height: 36px;
 }
 
 .header-nav {
 	display: flex;
 	align-items: center;
-	gap: 40px;
+	gap: 36px;
 }
 
-.header-nav a {
+.header-nav a,
+.mobile-menu a {
+	position: relative;
 	color: var(--color-text);
 	text-decoration: none;
 	transition: opacity 0.2s ease;
 }
 
-/* .header-nav a:hover,
-.logo:hover {
-	opacity: 0.55;
-} */
+.header-nav a::after,
+.mobile-menu a::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: -8px;
+	left: 0;
+	height: 1px;
+	background: currentColor;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.25s ease;
+}
 
-
-/* =========================
-   Mobile menu toggle
-   ========================= */
+.header-nav a:hover::after,
+.header-nav a.is-current::after,
+.mobile-menu a.is-current::after {
+	transform: scaleX(1);
+	transform-origin: left;
+}
 
 .menu-toggle {
 	display: none;
-
 	width: 44px;
 	height: 44px;
 	padding: 0;
-
 	border: 0;
 	background: transparent;
 	cursor: pointer;
-
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	gap: 4.5px;
-
 	position: relative;
 	z-index: 30;
 }
 
 .menu-toggle span {
 	display: block;
-
 	width: 24px;
-	height: 1.7px;
-
+	height: 1.5px;
 	background: var(--color-text);
-
-	transition:
-		transform 0.2s ease,
-		width 0.2s ease;
+	transition: transform 0.2s ease, width 0.2s ease;
 }
 
-/* Открытое состояние — крестик */
 .menu-toggle.is-open span:first-child {
 	transform: translateY(3px) rotate(30deg);
 }
@@ -97,27 +96,17 @@
 	transform: translateY(-3px) rotate(-30deg);
 }
 
-
-/* =========================
-   Mobile menu
-   ========================= */
-
 .mobile-menu {
 	display: none;
 }
-
-
-/* =========================
-   Mobile
-   ========================= */
 
 @media (max-width: 767px) {
 	.header-inner {
 		padding: 16px var(--mobile-gutter);
 	}
 
-	.logo {
-		padding-top: 16px;
+	.logo img {
+		height: 36px;
 	}
 
 	.header-nav {
@@ -128,56 +117,31 @@
 		display: flex;
 	}
 
-	/*
-	 * Меню лежит поверх логотипа.
-	 * Оно начинается у правого края
-	 * и раскрывается влево.
-	 */
-	 .mobile-menu {
+	.mobile-menu {
 		display: flex;
-	
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: var(--mobile-gutter);
-	
 		height: 100%;
-	
 		padding: 0 64px 0 var(--mobile-gutter);
-	
 		align-items: center;
 		justify-content: flex-start;
 		gap: 24px;
-	
-		background: var(--color-background, #fff);
-	
+		background: var(--color-background);
 		white-space: nowrap;
-	
+		visibility: hidden;
 		opacity: 0;
 		transform: translateX(var(--mobile-gutter));
 		pointer-events: none;
-	
-		transition:
-			opacity 0.2s ease,
-			transform 0.2s ease;
-	
+		transition: opacity 0.2s ease, transform 0.2s ease;
 		z-index: 20;
 	}
 
 	.mobile-menu.is-open {
+		visibility: visible;
 		opacity: 1;
 		transform: translateX(0);
 		pointer-events: auto;
-	}
-
-	.mobile-menu a {
-		color: var(--color-text);
-		text-decoration: none;
-
-		transition: opacity 0.2s ease;
-	}
-
-	.mobile-menu a:hover {
-		opacity: 0.55;
 	}
 }

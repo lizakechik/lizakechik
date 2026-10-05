@@ -7,6 +7,7 @@ interface Props {
 
 const { variant = "default" } = Astro.props;
 const isHome = variant === "home";
+const pathname = Astro.url.pathname;
 ---
 
 <header class:list={["header", isHome && "header--home"]}>
@@ -16,8 +17,8 @@ const isHome = variant === "home";
 		</a>
 
 		<nav class="header-nav" aria-label="Основная навигация">
-			<a href="/stories" class="text-caps">Истории</a>
-			<a href="/about" class="text-caps">Об авторе</a>
+			<a href="/stories" class:list={["text-caps", pathname.startsWith("/stories") && "is-current"]}>Истории</a>
+			<a href="/about" class:list={["text-caps", pathname === "/about" && "is-current"]}>Об авторе</a>
 		</nav>
 
 		<button
@@ -31,8 +32,8 @@ const isHome = variant === "home";
 		</button>
 
 		<nav class="mobile-menu" aria-label="Мобильная навигация">
-			<a href="/stories" class="text-caps">Истории</a>
-			<a href="/about" class="text-caps">Об авторе</a>
+			<a href="/stories" class:list={["text-caps", pathname.startsWith("/stories") && "is-current"]}>Истории</a>
+			<a href="/about" class:list={["text-caps", pathname === "/about" && "is-current"]}>Об авторе</a>
 		</nav>
 	</div>
 </header>

@@ -1,20 +1,25 @@
 ---
+import "../styles/contact.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<BaseLayout title="Контакты">
+<BaseLayout title="Контакты — Liza Kechik" description="Контакты Елизаветы Кечик">
+	<Header />
 
-<Header />
+	<main class="contact-page">
+		<div class="container contact-page__inner">
+			<p class="text-caps section-kicker">Контакты</p>
+			<h2>Давайте обсудим продукт, задачу или&nbsp;идею.</h2>
 
-<main class="container">
+			<div class="contact-page__links">
+				<a href="mailto:hello@lizakechik.com">hello@lizakechik.com <span class="icon-arrow icon-arrow--external" aria-hidden="true"></span></a>
+				<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn <span class="icon-arrow icon-arrow--external" aria-hidden="true"></span></a>
+				<a href="https://t.me" target="_blank" rel="noopener noreferrer">Telegram <span class="icon-arrow icon-arrow--external" aria-hidden="true"></span></a>
+			</div>
+		</div>
+	</main>
 
-<h1>Контакты</h1>
-
-<p>
-Telegram · Email · LinkedIn
-</p>
-
-</main>
-
+	<Footer />
 </BaseLayout>
