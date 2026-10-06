@@ -1,0 +1,41 @@
+name: Deploy to Beget
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Astro
+        run: npm run build
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.BEGET_SSH_KEY }}" > ~/.ssh/beget_key
+          chmod 600 ~/.ssh/beget_key
+          ssh-keyscan -H elizav6h.beget.tech >> ~/.ssh/known_hosts
+
+      - name: Deploy to Beget
+        run: |
+          rsync -avz --delete \
+            --exclude='cgi-bin/' \
+            -e "ssh -i ~/.ssh/beget_key" \
+            dist/ \
+            elizav6h@elizav6h.beget.tech:/home/e/elizav6h/elizav6h.beget.tech/public_html/
