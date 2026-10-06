@@ -117,5 +117,10 @@
 	.hero-index {
 		margin-top: 24px;
 	}
+}
 
+@media (max-width: 389px) {
+	.hero-main {
+		padding-bottom: 56px;
+	}
 }

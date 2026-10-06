@@ -31,6 +31,7 @@
 }
 
 .story-list {
+	margin-top: 8px;
 	border-top: 1px solid var(--color-divider);
 }
 
@@ -101,6 +102,10 @@
 
 	.stories-heading .arrow-link {
 		margin-top: 32px;
+	}
+
+	.story-list {
+		margin-top: 0;
 	}
 
 	.story-row__link {
