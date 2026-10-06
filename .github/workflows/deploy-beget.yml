@@ -28,7 +28,7 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.BEGET_SSH_KEY }}" > ~/.ssh/beget_key
+          echo "${{ secrets.BEGET_SSH_KEY }}" | base64 --decode > ~/.ssh/beget_key
           chmod 600 ~/.ssh/beget_key
           ssh-keyscan -H elizav6h.beget.tech >> ~/.ssh/known_hosts
 
