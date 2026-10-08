@@ -114,7 +114,7 @@
 	}
 
 	.stories-list__inner {
-		width: calc(100% - (var(--mobile-gutter) * 2));
+		width: 100%;
 	}
 
 	.story-item {

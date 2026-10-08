@@ -21,6 +21,9 @@ export async function getStaticPaths() {
 
 const { story } = Astro.props;
 const { Content } = await render(story);
+const isBackgroundStory = story.data.section === "background";
+const backHref = isBackgroundStory ? `/about#${story.id}` : "/stories";
+const backLabel = isBackgroundStory ? "Об авторе" : "Все истории";
 ---
 
 <BaseLayout title={story.data.title} description={story.data.description}>
@@ -29,9 +32,13 @@ const { Content } = await render(story);
 	<main class="story-page">
 		<section class="story-header">
 			<div class="story-header__inner">
-				<a href="/stories" class="text-caps arrow-link arrow-link--back">
+				<a
+					href={backHref}
+					class="text-caps arrow-link arrow-link--back"
+					data-history-back={isBackgroundStory ? "" : undefined}
+				>
 					<span class="icon-arrow icon-arrow--back" aria-hidden="true"></span>
-					Все истории
+					{backLabel}
 				</a>
 
 				<div class="story-header__content">
@@ -80,3 +87,23 @@ const { Content } = await render(story);
 
 	<Footer />
 </BaseLayout>
+
+<script>
+	const historyBackLink = document.querySelector<HTMLAnchorElement>(
+		"[data-history-back]",
+	);
+
+	historyBackLink?.addEventListener("click", (event) => {
+		if (!document.referrer) return;
+
+		const referrer = new URL(document.referrer);
+		const cameFromAbout =
+			referrer.origin === window.location.origin &&
+			referrer.pathname.replace(/\/$/, "") === "/about";
+
+		if (!cameFromAbout) return;
+
+		event.preventDefault();
+		window.history.back();
+	});
+</script>

@@ -7,7 +7,9 @@ import Footer from "../../components/Footer.astro";
 
 import { getCollection } from "astro:content";
 
-const stories = await getCollection("stories");
+const stories = (await getCollection("stories")).filter(
+	(story) => story.data.section === "stories",
+);
 
 const categories = [
 	"ALL",

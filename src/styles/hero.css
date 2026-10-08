@@ -19,7 +19,6 @@
 	grid-template-columns: minmax(0, 2fr) minmax(260px, 0.7fr);
 	column-gap: 88px;
 	align-items: end;
-	transform: translateY(clamp(6px, 1.5svh, 14px));
 }
 
 .hero h1 {
@@ -28,15 +27,11 @@
 	text-wrap: balance;
 }
 
-.hero-kicker {
-	margin-bottom: clamp(20px, 3.5svh, 36px);
-}
-
 .hero-aside {
 	padding-bottom: 10px;
 }
 
-.hero-aside > p {
+.hero-aside__text {
 	font-size: 16px;
 	color: var(--color-muted);
 }
@@ -66,7 +61,9 @@
 }
 
 .hero-index span {
+	flex: 0 0 2ch;
 	color: var(--color-muted);
+	font-variant-numeric: tabular-nums;
 }
 
 .first-screen {
@@ -99,18 +96,13 @@
 	.hero-layout {
 		grid-template-columns: 1fr;
 		row-gap: 40px;
-		transform: none;
-	}
-
-	.hero-kicker {
-		margin-bottom: 24px;
 	}
 
 	.hero-aside {
 		padding-bottom: 0;
 	}
 
-	.hero-aside > p {
+	.hero-aside__text {
 		font-size: 15px;
 	}
 

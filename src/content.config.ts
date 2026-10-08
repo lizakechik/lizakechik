@@ -15,6 +15,7 @@ const stories = defineCollection({
 		company: z.string().optional(),
 		category: z.string(),
 		featured: z.boolean().default(false),
+		section: z.enum(["stories", "background"]).default("stories"),
 	}),
 });
 

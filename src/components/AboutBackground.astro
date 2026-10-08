@@ -5,6 +5,7 @@ const backgroundItems: {
 	label: string;
 	title: string;
 	paragraphs: string[];
+	href: string;
 }[] = [
 	{
 		label: "Знания",
@@ -12,13 +13,15 @@ const backgroundItems: {
 		paragraphs: [
 			"Для меня знания — это не набор фактов, а опора, которая позволяет глубже понимать предмет и уверенно двигаться дальше. Мне важно не просто узнать новое, а понять, как это работает.",
 		],
+		href: "/stories/knowledge-as-foundation",
 	},
 	{
 		label: "Опыт",
 		title: "Формирует взгляд",
 		paragraphs: [
-			"За свою карьеру я успела поработать с разными продуктами и в разных ролях. Начинала с аналитики данных, позже занималась собственными проектами, проектировала пользовательский опыт, а со временем перешла к управлению продуктом.",
+			"За свою карьеру я успела поработать в разных ролях. Начинала с аналитики данных, позже занималась собственными проектами, проектировала пользовательский опыт, а со временем перешла к управлению продуктом.",
 		],
+		href: "/stories/experience-shapes-perspective",
 	},
 	{
 		label: "Интересы",
@@ -26,6 +29,7 @@ const backgroundItems: {
 		paragraphs: [
 			"Продуктовая работа требует широкого взгляда, поэтому мне важно сохранять любопытство за пределами своей профессии. Я люблю пробовать новое, погружаться в незнакомые темы и расширять профессиональный контекст.",
 		],
+		href: "/stories/interests-expand-perspective",
 	},
 	{
 		label: "Мышление",
@@ -33,6 +37,7 @@ const backgroundItems: {
 		paragraphs: [
 			"Мне важно сначала понять, что именно мы пытаемся решить. В сложных задачах легко увлечься деталями, не договорившись о самой проблеме. Поэтому я стараюсь отступить на шаг назад, разобраться в контексте и найти главный вопрос.",
 		],
+		href: "/stories/thinking-defines-approach",
 	},
 ];
 ---
@@ -46,20 +51,27 @@ const backgroundItems: {
 		<div class="about-background__list">
 			{
 				backgroundItems.map((item) => (
-					<article class="about-background__item">
-						<div class="about-background__content">
-							<h4 class="about-background__title">
-								{item.label}
-							</h4>
+					<article
+						id={item.href.replace("/stories/", "")}
+						class="about-background__item"
+					>
+						<a href={item.href} class="about-background__link">
+							<div class="about-background__content">
+								<h4 class="about-background__title">
+									{item.label}
+								</h4>
 
-							<p class="about-background__principle text-caps">{item.title}</p>
+								<p class="about-background__principle text-caps">{item.title}</p>
 
-							<div class="about-background__text">
-								{item.paragraphs.map((paragraph) => (
-									<p class="text-small">{paragraph}</p>
-								))}
+								<div class="about-background__text">
+									{item.paragraphs.map((paragraph) => (
+										<p class="text-small">{paragraph}</p>
+									))}
+								</div>
 							</div>
-						</div>
+
+							<span class="about-background__arrow icon-arrow icon-arrow--external" aria-hidden="true"></span>
+						</a>
 					</article>
 				))
 			}
